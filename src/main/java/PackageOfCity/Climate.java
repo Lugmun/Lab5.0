@@ -1,16 +1,15 @@
+package PackageOfCity;
 
-
-public enum Government {
-    ANARCHY("ANARCHY"),
-    CORPORATOCRACY("CORPORATOCRACY"),
-    NOOCRACY("NOOCRACY"),
-    PLUTOCRACY("PLUTOCRACY"),
-    ETHNOCRACY("ETHNOCRACY");
+public enum Climate {
+    TROPICAL_SAVANNA("TROPICAL_SAVANNA"),
+    STEPPE("STEPPE"),
+    SUBARCTIC("SUBARCTIC"),
+    POLAR_ICECAP("POLAR_ICECAP");
 
     private String string;
 
     // constructor to set the string
-    Government(String name){
+    Climate(String name){
         string = name;
     }
 
@@ -19,4 +18,5 @@ public enum Government {
     public String toString() {
         return string;
     }
+
 }

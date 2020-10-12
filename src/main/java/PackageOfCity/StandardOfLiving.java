@@ -1,4 +1,4 @@
-
+package PackageOfCity;
 
 public enum StandardOfLiving {
     ULTRA_HIGH("ULTRA_HIGH"),

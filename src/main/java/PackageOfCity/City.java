@@ -1,7 +1,6 @@
+package PackageOfCity;
+
 import java.time.ZonedDateTime;
-import java.util.UUID;
-
-
 
 
 public class City implements Comparable<City>{
@@ -55,7 +54,7 @@ public class City implements Comparable<City>{
         return id;
     }
 
-    public static long previousID = 0;
+    /*public static long previousID = 0;
 
     public void setId() {
         this.id = System.currentTimeMillis() % 10000000000L;
@@ -65,13 +64,7 @@ public class City implements Comparable<City>{
         previousID = id;
         this.id = id;
     }
-
-    /*public void setId(City c) {
-        UUID id = UUID.randomUUID();
-        System.out.print(id.toString());
-    }
-     */
-
+    */
 
     //getters and setters
     public void setName(String name) {
@@ -90,7 +83,8 @@ public class City implements Comparable<City>{
         return coordinates;
     }
 
-    public ZonedDateTime getCreationDate() {
+    public static ZonedDateTime setCreationDate(){
+        ZonedDateTime creationDate = ZonedDateTime.now();
         return creationDate;
     }
 
@@ -128,16 +122,36 @@ public class City implements Comparable<City>{
 
 
     @Override
-    public int compareTo(City o) {
-        return 0;
+    public int compareTo(City city) {
+        int diff = 0;
+
+        if(this.id - city.getId() > 0){
+            diff++;
+        }else if (this.id - city.getId() < 0){
+            diff--;
+        }
+        return diff;
     }
 
     @Override
     public String toString() {
-        return getId()+";"+getName()+";"+getCoordinates()+";"
+        return  getId()+";"+getName()+";"+getCoordinates()+";"
                 +getArea()+";"+getPopulation()+";"+getMetersAboveSeaLevel() +";"
                 +climate.toString()+";"+government.toString()+";"
-                +standardOfLiving.toString()+";"+getGovernor();
+                +standardOfLiving.toString()+";"+getGovernor()+"\n";
+    }
+
+    public String customToString() {
+        return "City ID: "+getId()+"\n"+
+                "Name: "+getName()+"\n"+
+                "Coordinates: "+getCoordinates().getX()+"; "+getCoordinates().getY()+"\n"+
+                "Area: " +getArea()+"\n"+
+                "Population: "+getPopulation()+"\n"+
+                "Meters above the sea: "+getMetersAboveSeaLevel()+"\n"+
+                "Climate: " +climate.toString()+"\n"+
+                "Government: "+government.toString()+"\n"+
+                "Standard of living: "+standardOfLiving.toString()+"\n"+
+                "Governor: "+getGovernor();
     }
 }
 
