@@ -94,8 +94,8 @@ public class Terminal {
                     System.out.println("save : сохранить коллекцию в файл");                                                                                     //complete
                     System.out.println("execute_script file_name : считать и исполнить скрипт из указанного файла");                                             //
                     System.out.println("exit : завершить программу (без сохранения в файл)");                                                                    //complete
-                    System.out.println("replace_if_greater null {element} : заменить значение по ключу, если новое значение больше старого");                    //
-                    System.out.println("replace_if_lower null {element} : заменить значение по ключу, если новое значение меньше старого");                      //
+                    System.out.println("replace_if_greater null {element} : заменить значение по ключу, если новое значение больше старого");                    //Complete
+                    System.out.println("replace_if_lower null {element} : заменить значение по ключу, если новое значение меньше старого");                      //Complete
                     System.out.println("remove_lower_key null : удалить из коллекции все элементы, ключ которых меньше, чем заданный");                          //complete
                     System.out.println("average_of_meters_above_sea_level : вывести среднее значение поля metersAboveSeaLevel для всех элементов коллекции");    //complete
                     System.out.println("print_field_ascending_government : вывести значения поля government всех элементов в порядке возрастания");              //
@@ -130,6 +130,8 @@ public class Terminal {
                     System.out.println("Null второй агрумент");
                     break;
 
+                case "average_of_meters_above_sea_level":
+                    average_of_meters_above_the_sea_level.execute(hashtable);
                     /*
                 case "execute_script":
 
@@ -141,11 +143,6 @@ public class Terminal {
                     System.out.println("Unknown command, type 'help' for a list of commands");
                     break;
             }
-
-
-            //history.add(arr1);
-
-
 
         } else{
 
@@ -170,14 +167,20 @@ public class Terminal {
 
                     break;
 
-                    /*
-                case "remove_any_by_governor":
 
-                    removeAnyByGovernor.execute(hashtable, arr2.trim());
+                case "replace_if_greater":
+
+                    replace_if_greater.execute(hashtable, arr2.trim());
 
                     break;
 
-                 */
+                case "replace_if_lower":
+
+                    replace_if_lower.execute(hashtable, arr2.trim());
+
+                    break;
+
+
                 case "remove_lower_key":
 
                     remove_lower_key.execute(hashtable, arr2.trim());
