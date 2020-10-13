@@ -9,13 +9,6 @@ import java.util.Scanner;
 
 public class FieldOfCityChecker implements Checker {
 
-    public static long previousID = 0;
-
-    public static long generateId() {
-        Long id = previousID + 1;
-        previousID = id;
-        return id;
-    }
 
     public static Climate setClimate(String str){
         Climate cl = null;
@@ -118,7 +111,7 @@ public class FieldOfCityChecker implements Checker {
         City newCity = null;
 
         if (str.length == 10) {
-            long id = generateId();
+            //long id = generateId();
 
             if (str[0] != null) {
                 name = str[0];
@@ -189,7 +182,7 @@ public class FieldOfCityChecker implements Checker {
             } else {
                 System.out.println("Поле Governor в " + counter + " городе будет null");
             }
-            newCity = new City(id, name, coordinates, creationDate, area, population, metersAboveTheSea, climate, government, standardOfLiving, governor);
+            newCity = new City(name, coordinates, creationDate, area, population, metersAboveTheSea, climate, government, standardOfLiving, governor);
             //CityHashtable newCity = new CityHashtable();
 
             //hashtable.put(id, new City(id, name, coordinates, creationDate, area, population, metersAboveTheSea, climate, government, standardOfLiving, governor));

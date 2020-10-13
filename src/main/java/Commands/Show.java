@@ -17,7 +17,7 @@ public class Show implements Command {
 
             for (City c: hashtable.values()){
                 System.out.println(c.customToString());
-                System.out.println("----------//----------");
+                System.out.println("--------------------------");
 
             }
 

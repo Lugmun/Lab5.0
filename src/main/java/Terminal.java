@@ -21,7 +21,6 @@ public class Terminal {
     private Clear clear = new Clear();
     private Save save = new Save();
     //private ExecuteScript executeScript = new ExecuteScript(this);
-    private Exit exit = new Exit();
     private ReplaceIfGreater replace_if_greater = new ReplaceIfGreater();
     private ReplaceIfLower replace_if_lower = new ReplaceIfLower();
     private RemoveLowerKey remove_lower_key = new RemoveLowerKey();
@@ -86,72 +85,49 @@ public class Terminal {
                 case "help":
 
                     System.out.println("help : вывести справку по доступным командам");                                                                          //complete
-
                     System.out.println("info : вывести в стандартный поток вывода информацию о коллекции");                                                      //complete
-
                     System.out.println("show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении");                            //complete
-
-                    System.out.println("insert null {element} : добавить новый элемент c заданным ключом");                                                      //
-
-                    System.out.println("update id {element} : обновить значение элемента коллекции, id которого равен заданному");                               //
-
-                    System.out.println("remove_key null : удалить элемент из коллекции по его ключу");                                                           //
-
+                    System.out.println("insert null {element} : добавить новый элемент c заданным ключом");                                                      //complete
+                    System.out.println("update id {element} : обновить значение элемента коллекции, id которого равен заданному");                               //complete
+                    System.out.println("remove_key null : удалить элемент из коллекции по его ключу");                                                           //complete
                     System.out.println("clear : очистить коллекцию");                                                                                            //complete
-
                     System.out.println("save : сохранить коллекцию в файл");                                                                                     //complete
-
                     System.out.println("execute_script file_name : считать и исполнить скрипт из указанного файла");                                             //
-
                     System.out.println("exit : завершить программу (без сохранения в файл)");                                                                    //complete
-
                     System.out.println("replace_if_greater null {element} : заменить значение по ключу, если новое значение больше старого");                    //
-
-                    System.out.println("replace_if_lowe null {element} : заменить значение по ключу, если новое значение меньше старого");                       //
-
-                    System.out.println("remove_lower_key null : удалить из коллекции все элементы, ключ которых меньше, чем заданный");                          //
-
-                    System.out.println("average_of_meters_above_sea_level : вывести среднее значение поля metersAboveSeaLevel для всех элементов коллекции");    //
-
+                    System.out.println("replace_if_lower null {element} : заменить значение по ключу, если новое значение меньше старого");                      //
+                    System.out.println("remove_lower_key null : удалить из коллекции все элементы, ключ которых меньше, чем заданный");                          //complete
+                    System.out.println("average_of_meters_above_sea_level : вывести среднее значение поля metersAboveSeaLevel для всех элементов коллекции");    //complete
                     System.out.println("print_field_ascending_government : вывести значения поля government всех элементов в порядке возрастания");              //
-
                     System.out.println("print_field_descending_governor : вывести значения поля governor всех элементов в порядке убывания");                    //
-
                     break;
 
                 case "info":
-
                     info.execute(hashtable);
-
                     break;
 
                 case "show":
-
                     show.execute(hashtable);
-
                     break;
-
 
                 case "clear":
-
                     clear.execute(hashtable);
-
                     break;
-
                 case "save":
-
                     save.execute(hashtable);
-
                     break;
 
-                case "add":
+                case "insert":
 
-                case "add_if_max":
+                case "update":
 
-                case "remove_lower":
+                case "remove_key":
 
-                    System.out.println("Null json-object. Try another argument");
+                case "replace_if_lower":
 
+                case "replace_if_greater":
+
+                    System.out.println("Null второй агрумент");
                     break;
 
                     /*
@@ -160,21 +136,10 @@ public class Terminal {
                     System.out.println("Null script name value. Try another argument");
 
                     break;
-
-                case "remove_by_id":
-
-                    System.out.println("ID should be a number from 0 to " + Long.MAX_VALUE);
-
-                    break;
-
                      */
-
                 default:
-
                     System.out.println("Unknown command, type 'help' for a list of commands");
-
                     break;
-
             }
 
 
@@ -186,12 +151,11 @@ public class Terminal {
 
             switch (arr1){
 
-                /*case "add":
+                case "insert":
 
-                    add.execute(hashtable, arr2.trim());
+                    insert.execute(hashtable, arr2.trim());
 
                     break;
-                    */
 
 
                 case  "update":
@@ -200,41 +164,34 @@ public class Terminal {
 
                     break;
 
-                /*case "remove_by_id":
+                case "remove_key":
 
-                    removeById.execute(hashtable, arr2.trim());
+                    remove_key.execute(hashtable, arr2.trim());
 
                     break;
 
+                    /*
                 case "remove_any_by_governor":
 
                     removeAnyByGovernor.execute(hashtable, arr2.trim());
 
                     break;
 
-                case "remove_lower":
+                 */
+                case "remove_lower_key":
 
-                    removeLower.execute(hashtable, arr2.trim());
-
-                    break;
-
-                case "filter_starts_with_name":
-
-                    filterStartsWithName.execute(hashtable, arr2.trim());
+                    remove_lower_key.execute(hashtable, arr2.trim());
 
                     break;
 
-                case "add_if_max":
-
-                    addIfMax.execute(hashtable, arr2.trim());
-
-                    break;
-
+                /*
                 case "execute_script":
 
                     executeScript.execute(hashtable,arr2.trim());
 
                     break;
+
+                 */
 
                 default:
 
@@ -242,7 +199,7 @@ public class Terminal {
 
                     break;
 
-           */ }
+            }
 
 
         }

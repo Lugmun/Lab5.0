@@ -54,17 +54,14 @@ public class City implements Comparable<City>{
         return id;
     }
 
-    /*public static long previousID = 0;
+    public static long previousID = 0;
 
-    public void setId() {
-        this.id = System.currentTimeMillis() % 10000000000L;
-        if (id <= previousID) {
-            id = previousID + 1;
-        }
+    public static long generateId() {
+        long id = previousID + 1;
         previousID = id;
-        this.id = id;
+        return id;
     }
-    */
+
 
     //getters and setters
     public void setName(String name) {
@@ -130,6 +127,12 @@ public class City implements Comparable<City>{
         }else if (this.id - city.getId() < 0){
             diff--;
         }
+
+        diff += Float.valueOf(this.getArea()).compareTo(Float.valueOf(city.getArea()));
+        diff += Long.valueOf(this.getPopulation()).compareTo(Long.valueOf(city.getPopulation()));
+        diff += this.getMetersAboveSeaLevel().compareTo(city.getMetersAboveSeaLevel());
+        diff += this.getCoordinates().compareTo(city.getCoordinates());
+
         return diff;
     }
 
@@ -152,6 +155,10 @@ public class City implements Comparable<City>{
                 "Government: "+government.toString()+"\n"+
                 "Standard of living: "+standardOfLiving.toString()+"\n"+
                 "Governor: "+getGovernor();
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
 

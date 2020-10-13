@@ -145,14 +145,18 @@ public class FileConverter {
         try(FileReader fr = new FileReader(csvPath)){
             CSVReader csvReader = new CSVReader(fr, ';');
 
-            int counter = 0;
+
+
+            //int counter = 0;
             String[] nextRecord;
 
             while ((nextRecord = csvReader.readNext())!= null){
 
 
                 FieldOfCityChecker fieldOfCityChecker = new FieldOfCityChecker();
-                fieldOfCityChecker.checkEverything(csvReader.readNext());
+                City cityToPut = fieldOfCityChecker.checkEverything(nextRecord);
+                cityToPut.setId(City.generateId());
+                hashtable.put(cityToPut.getId(), cityToPut);
 
                 /*
                 String name = null; double x = 0; Integer y = 0; Long area = null;
