@@ -20,7 +20,7 @@ public class Terminal {
     private RemoveKey remove_key = new RemoveKey();
     private Clear clear = new Clear();
     private Save save = new Save();
-    //private ExecuteScript executeScript = new ExecuteScript(this);
+    private ExecuteScript executeScript = new ExecuteScript(this);
     private ReplaceIfGreater replace_if_greater = new ReplaceIfGreater();
     private ReplaceIfLower replace_if_lower = new ReplaceIfLower();
     private RemoveLowerKey remove_lower_key = new RemoveLowerKey();
@@ -143,13 +143,13 @@ public class Terminal {
 
                     print_field_descending_governor.execute(hashtable);
                     break;
-                    /*
+
                 case "execute_script":
 
                     System.out.println("Null script name value. Try another argument");
 
                     break;
-                     */
+
                 default:
                     System.out.println("Неизвестная команда, напечатайте 'help' для просмотра списка команд");
                     break;
@@ -199,14 +199,14 @@ public class Terminal {
                     break;
 
 
-                /*
+
                 case "execute_script":
 
                     executeScript.execute(hashtable,arr2.trim());
 
                     break;
 
-                 */
+
 
                 default:
 
