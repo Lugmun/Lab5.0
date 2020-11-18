@@ -222,7 +222,7 @@ public class City implements Comparable<City>{
         }
 
         diff += Float.valueOf(this.getArea()).compareTo(Float.valueOf(city.getArea()));
-        diff += Long.valueOf(this.getPopulation()).compareTo(Long.valueOf(city.getPopulation()));
+        diff += Long.compare(this.getPopulation(), city.getPopulation());
         diff += this.getMetersAboveSeaLevel().compareTo(city.getMetersAboveSeaLevel());
         //diff += this.getCoordinates().compareTo(city.getCoordinates());
 

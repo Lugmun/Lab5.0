@@ -139,7 +139,7 @@ public class Terminal {
                     print_field_ascending_government.execute(hashtable);
                     break;
 
-                case "print_field_descending_government":
+                case "print_field_descending_governor":
 
                     print_field_descending_governor.execute(hashtable);
                     break;

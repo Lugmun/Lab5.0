@@ -3,7 +3,7 @@ package PackageOfCity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Coordinates /* implements Comparable<Coordinates>*/ {
+public class Coordinates  implements Comparable<Coordinates> {
     private double x;
     private Integer y; //Поле не может быть null
     List<Object> list = new ArrayList<>(2);
@@ -42,18 +42,17 @@ public class Coordinates /* implements Comparable<Coordinates>*/ {
         }
     }
 
-    /*@Override
+    @Override
     public int compareTo(Coordinates coo) {
-        if (this.getX().equals(coo.getX()) && (this.getY().equals(coo.getY()))) {
+        if ((this.getX() == (coo.getX()) && (this.getY().equals(coo.getY())))) {
             return 0;
-        } else if (Double.parseDouble(this.getY()) - Double.parseDouble(coo.getY()) > 0) {
+        } else if (Double.valueOf(this.getY()) - Double.valueOf(coo.getY()) > 0) {
             return 1;
         } else {
             return -1;
         }
     }
 
-     */
 
     public String toString() {
         return x+";"+y;

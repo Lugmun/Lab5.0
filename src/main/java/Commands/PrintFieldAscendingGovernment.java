@@ -8,7 +8,7 @@ import java.util.*;
 public class PrintFieldAscendingGovernment implements Command {
     @Override
     public void execute(CityHashtable hashtable) {
-        double value = 0;
+        //double value = 0;
 
 
         if (!hashtable.isEmpty()) {
