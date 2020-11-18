@@ -15,18 +15,14 @@ public class RemoveKey implements BigCommand {
 
             if (!hashtable.isEmpty()) {
 
-                Set<Long> keys = hashtable.keySet();
-                for(long key : keys){
-                    if (idToRemove == key) {
-                        hashtable.remove(key);
-                    }
-                }
-                if (hashtable.size() != prevSize) {System.out.println("Город был успешно удалён");}
-                else {System.out.println("Города c таким id нет");}
+                if (hashtable.containsKey(idToRemove)) {
+                    hashtable.remove(idToRemove);
+                } else System.out.println("Города c таким id нет");
 
-            } else {
-                System.out.println("Коллекция пуста");
-            }
+            } else System.out.println("Коллекция пуста");
+
+            if (prevSize - hashtable.size() > 0) System.out.println("Город был успешно удалён");
+
         }catch (NumberFormatException e){
             System.out.println("ID должен быть типа long от 0 до "+Long.MAX_VALUE);
         }

@@ -2,6 +2,7 @@ package Commands;
 
 import PackageOfCity.CityHashtable;
 
+import java.util.Arrays;
 import java.util.Set;
 
 public class RemoveLowerKey implements BigCommand{
@@ -12,7 +13,8 @@ public class RemoveLowerKey implements BigCommand{
                 long presentId = Long.parseLong(str);
                 int prevSize = hashtable.size();
                 Set<Long> keys = hashtable.keySet();
-                for(long key : keys) {
+                Long[] array = keys.toArray(new Long[0]);
+                for(long key : array) {
                     if (presentId > key){
                         hashtable.remove(key);
                     }

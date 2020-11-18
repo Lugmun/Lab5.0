@@ -17,7 +17,8 @@ public class ReplaceIfGreater implements BigCommand{
                 String[] nextRecord = mstr[1].split(";", 10);
                 long presentId = Long.parseLong(mstr[0]);
                 Set<Long> keys = hashtable.keySet();
-                for(long key : keys) {
+                Long[] array = keys.toArray(new Long[0]);
+                for(long key : array) {
                     if (presentId == key) {
                         if (hashtable.get(presentId).compareTo(hashtable.get(key)) > 0) {
                             FieldOfCityChecker fieldOfCityChecker = new FieldOfCityChecker();

@@ -19,17 +19,17 @@ public class Insert implements BigCommand {
                 try {
                     mstr[1] = mstr[1].replaceAll("[{}]", "");
                     String[] nextRecord = mstr[1].split(";", 10);
-                    long neededId = Long.parseLong(mstr[0]);     //Long.valueOf(mstr[0]);
-                    Set<Long> keys = hashtable.keySet();
-                    for(long key : keys){
-                        if (neededId != key) {
-                            FieldOfCityChecker fieldOfCityChecker = new FieldOfCityChecker();
-                            City cityToPut = fieldOfCityChecker.checkEverything(nextRecord, -1);
-                            cityToPut.setId(neededId);
-                            hashtable.put(cityToPut.getId(), cityToPut);
-                            System.out.println("Город с id " + neededId + " был успешно добавлен");
-                        } else {System.out.println("Город c таким id существует");}
-                    }
+
+                    long neededId = Long.parseLong(mstr[0]);
+
+                    FieldOfCityChecker fieldOfCityChecker = new FieldOfCityChecker();
+                    City cityToPut = fieldOfCityChecker.checkEverything(nextRecord, -1);
+
+                    if (!hashtable.containsKey(neededId)) {
+                        cityToPut.setId(neededId);
+                        hashtable.put(neededId, cityToPut);
+                        System.out.println("Город с id " + neededId + " был успешно добавлен");
+                    } else System.out.println("Город c таким id существует");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -37,15 +37,24 @@ public class Insert implements BigCommand {
                 //System.out.println(str);
             }
         } else {
+
             String[] mstr = str.split(" ", 2);
+
             if (mstr.length == 2) {
-                String[] nextRecord = mstr[1].split(";", 10);
-                long neededId = Long.parseLong(mstr[0]);   //Long.valueOf(mstr[0]);
-                FieldOfCityChecker fieldOfCityChecker = new FieldOfCityChecker();
-                City cityToPut = fieldOfCityChecker.checkEverything(nextRecord, -1);
-                cityToPut.setId(neededId);
-                hashtable.put(cityToPut.getId(), cityToPut);
-                System.out.println("Город с id " + neededId + " был успешно добавлен");
+                try {
+                    String[] nextRecord = mstr[1].split(";", 10);
+
+                    long neededId = Long.parseLong(mstr[0]);   //Long.valueOf(mstr[0]);
+
+                    FieldOfCityChecker fieldOfCityChecker = new FieldOfCityChecker();
+                    City cityToPut = fieldOfCityChecker.checkEverything(nextRecord, -1);
+                    cityToPut.setId(neededId);
+                    hashtable.put(cityToPut.getId(), cityToPut);
+
+                    System.out.println("Город с id " + neededId + " был успешно добавлен");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
 

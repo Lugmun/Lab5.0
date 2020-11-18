@@ -60,12 +60,12 @@ public class FieldOfCityChecker implements Checker {
 
             while (x == 0) {
                 try {
-                    if (!nextRecord[5].equals("")) {
+                    if (!nextRecord[1].equals("")) {
                         x = Double.parseDouble(nextRecord[1]);
                     } else {x = 0; break;}
                 } catch (NumberFormatException e) {
-                    System.out.println("NumberFormatException в " + counter + " строке не задано. Пожалуйста, введите значение типа double");
-                    x = Double.parseDouble(scanner.nextLine());
+                    System.out.println("NumberFormatException. В " + counter + " строке несоответсвие. Пожалуйста, введите значение типа double");
+                    nextRecord[1] = scanner.nextLine();
                 }
             }
 
@@ -73,7 +73,7 @@ public class FieldOfCityChecker implements Checker {
                 try {
                     y = Integer.valueOf(nextRecord[2]);
                 } catch (NumberFormatException e) {
-                    System.out.println("NumberFormatException в " + counter + " строке не задано. Пожалуйста, введите поля типа int");
+                    System.out.println("NumberFormatException. В " + counter + " строке несоответсвие. Пожалуйста, введите значение поля типа int");
                     nextRecord[2] = scanner.nextLine();
                 }
             }
@@ -83,7 +83,7 @@ public class FieldOfCityChecker implements Checker {
                 try {
                     area = Long.valueOf(nextRecord[3]);
                 } catch (NumberFormatException e) {
-                    System.out.println("NumberFormatException  в " + counter + " строке не задано. Пожалуйста, введите значение типа float, большее 0");
+                    System.out.println("NumberFormatException. В " + counter + " строке несоответсвие. Пожалуйста, введите значение типа long, большее 0");
                     nextRecord[3] = scanner.nextLine();
                     continue;
                 }
@@ -95,7 +95,7 @@ public class FieldOfCityChecker implements Checker {
                 try {
                     population = Long.parseLong(nextRecord[4]);
                 } catch (NumberFormatException e) {
-                    System.out.println("NumberFormatException в " + counter + " строке не задано. Пожалуйста, введите значение типа long, большее 0");
+                    System.out.println("NumberFormatException. В " + counter + " строке несоответствие. Пожалуйста, введите значение типа long, большее 0");
                     nextRecord[4] = scanner.nextLine();
                     continue;
                 }
@@ -108,7 +108,7 @@ public class FieldOfCityChecker implements Checker {
                         metersAboveTheSea = Double.valueOf(nextRecord[5]);
                     } else {newCity.setMetersAboveSeaLevel(null); break;}
                 } catch (NumberFormatException e) {
-                    System.out.println("NumberFormatException в " + counter + " строке не задано. Пожалуйста, введите значение типа double");
+                    System.out.println("NumberFormatException. В " + counter + " строке несоответствие. Пожалуйста, введите значение типа double");
                     nextRecord[5] = scanner.nextLine();
                     continue;
                 }
@@ -136,7 +136,7 @@ public class FieldOfCityChecker implements Checker {
                         bool = true;
                         break;
                     default:
-                        System.out.println("Такого значения поля <<climate>> в " + counter + " строке не задано, введите один из следующих вариантов: \n" +
+                        System.out.println("Такого значения поля <<climate>> в " + counter + " строке нет, введите один из следующих вариантов: \n" +
                                            Climate.POLAR_ICECAP + "\n" +
                                            Climate.STEPPE + "\n" +
                                            Climate.SUBARCTIC + "\n" +
@@ -173,7 +173,7 @@ public class FieldOfCityChecker implements Checker {
                         bool = true;
                         break;
                     default:
-                        System.out.println("Такого значения поля <<government>> в " + counter + " строке не задано, введите один из следующих вариантов: \n" +
+                        System.out.println("Такого значения поля <<government>> в " + counter + " строке нет, введите один из следующих вариантов: \n" +
                                            Government.ANARCHY + "\n" +
                                            Government.CORPORATOCRACY + "\n" +
                                            Government.ETHNOCRACY + "\n" +
@@ -210,7 +210,7 @@ public class FieldOfCityChecker implements Checker {
                         bool = true;
                         break;
                     default:
-                        System.out.println("Такого значения поля <<standardOfLiving>> в " + counter + " строке не задано, введите один из следующих вариантов: \n" +
+                        System.out.println("Такого значения поля <<standardOfLiving>> в " + counter + " строке нет, введите один из следующих вариантов: \n" +
                                            StandardOfLiving.ULTRA_HIGH + "\n" +
                                            StandardOfLiving.HIGH + "\n" +
                                            StandardOfLiving.MEDIUM + "\n" +
