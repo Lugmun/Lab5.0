@@ -158,7 +158,7 @@ public class FileConverter {
                 City cityToPut = fieldOfCityChecker.checkEverything(nextRecord, counter);
                 cityToPut.setId(City.generateId());
                 hashtable.put(cityToPut.getId(), cityToPut);
-                hashtable.setAuthDateTime(LocalDateTime.now());
+                hashtable.setAuthDateTime(ZonedDateTime.now());
 
                 /*
                 String name = null; double x = 0; Integer y = 0; Long area = null;
