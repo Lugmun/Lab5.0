@@ -5,13 +5,13 @@ import java.time.ZonedDateTime;
 import java.util.Hashtable;
 
 public class CityHashtable extends Hashtable<Long, City> {
-    public LocalDateTime authDateTime;
+    public ZonedDateTime authDateTime;
 
     public void setAuthDateTime(ZonedDateTime authDateTime) {
         this.authDateTime = authDateTime;
     }
 
-    public LocalDateTime getAuthDateTime(){
+    public ZonedDateTime getAuthDateTime(){
         return this.authDateTime;
     }
 }

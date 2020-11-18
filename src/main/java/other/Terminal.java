@@ -42,7 +42,7 @@ public class Terminal {
      */
 
     public void start(){
-        System.out.println("Now you can start working. Type 'help' for a list of commands.");
+        System.out.println("Можете начать работать. Напечатайте 'help' для просмотра списка команд");
         while (true){
             newLine = scanner.nextLine().trim();
             String[] arr = newLine.split(" ", 2);
@@ -132,6 +132,17 @@ public class Terminal {
 
                 case "average_of_meters_above_sea_level":
                     average_of_meters_above_the_sea_level.execute(hashtable);
+                    break;
+
+                case "print_field_ascending_government":
+
+                    print_field_ascending_government.execute(hashtable);
+                    break;
+
+                case "print_field_descending_government":
+
+                    print_field_descending_governor.execute(hashtable);
+                    break;
                     /*
                 case "execute_script":
 
@@ -140,7 +151,7 @@ public class Terminal {
                     break;
                      */
                 default:
-                    System.out.println("Unknown command, type 'help' for a list of commands");
+                    System.out.println("Неизвестная команда, напечатайте 'help' для просмотра списка команд");
                     break;
             }
 
@@ -187,6 +198,7 @@ public class Terminal {
 
                     break;
 
+
                 /*
                 case "execute_script":
 
@@ -198,7 +210,7 @@ public class Terminal {
 
                 default:
 
-                    System.out.println("Unknown command, type 'help' for a list of commands");
+                    System.out.println("Неизвестная команда, напечатайте 'help' для просмотра списка команд");
 
                     break;
 
