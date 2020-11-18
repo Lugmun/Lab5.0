@@ -9,7 +9,7 @@ public class RemoveLowerKey implements BigCommand{
     public void execute(CityHashtable hashtable, String str) {
         if (!hashtable.isEmpty()){
             try{
-                long presentId = Long.valueOf(str);
+                long presentId = Long.parseLong(str);
                 int prevSize = hashtable.size();
                 Set<Long> keys = hashtable.keySet();
                 for(long key : keys) {
@@ -17,12 +17,13 @@ public class RemoveLowerKey implements BigCommand{
                         hashtable.remove(key);
                     }
                 }
-                System.out.println(prevSize - hashtable.size() + " елементов было удалено");
+                System.out.println(prevSize - hashtable.size() + " элементов было удалено");
             }catch (Exception e){
+                if (e instanceof NumberFormatException) {System.out.println("ID должен быть типа long от 0 до "+Long.MAX_VALUE);}
                 e.printStackTrace();
             }
         }else {
-            System.out.println("Collection is empty");
+            System.out.println("Коллекция пуста");
         }
     }
 }

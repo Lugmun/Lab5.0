@@ -23,14 +23,14 @@ public class UpdateId implements BigCommand  {
                 try {
                     mstr[1] = mstr[1].replaceAll("[{}]", "");
                     String[] nextRecord = mstr[1].split(";", 10);
-                    long neededId = Long.valueOf(mstr[0]);
+                    long neededId = Long.parseLong(mstr[0]);     //Long.valueOf(mstr[0]);
                     Set<Long> keys = hashtable.keySet();
                     for(long key : keys){
                         if (neededId == key) {
                             i = i+1;
                             //System.out.println(hashtable.remove(neededId));
                             FieldOfCityChecker fieldOfCityChecker = new FieldOfCityChecker();
-                            City cityToPut = fieldOfCityChecker.checkEverything(nextRecord);
+                            City cityToPut = fieldOfCityChecker.checkEverything(nextRecord, -1);
                             cityToPut.setId(neededId);
                             hashtable.put(cityToPut.getId(), cityToPut);
                             System.out.println("Город с id " + neededId + " был успешно обновлён");
@@ -44,6 +44,9 @@ public class UpdateId implements BigCommand  {
 
             //System.out.println(str);
             }
+        } else {
+            System.out.println("Невозможно обновить."+"\n"+
+                               "Коллекция пуста");
         }
     }
 }

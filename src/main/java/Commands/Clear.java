@@ -8,9 +8,7 @@ public class Clear implements Command {
     public void execute(CityHashtable hashtable) {
         if(!hashtable.isEmpty()){
             hashtable.clear();
-            System.out.println("Collection was cleared successfully");
-        }else{
-            System.out.println("Collection is empty");
-        }
+            System.out.println("Коллекция была очищена");
+        } else {System.out.println("Коллекция пуста");}
     }
 }

@@ -25,7 +25,7 @@ public class Save implements Command {
             }
             //bos.flush();
             //bos.close();
-            System.out.println("File was written");
+            System.out.println("Коллекция была записана в файл");
 
         }
         catch(IOException ex){

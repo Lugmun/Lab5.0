@@ -3,9 +3,9 @@ package Checkers;
 import PackageOfCity.City;
 import PackageOfCity.Coordinates;
 
-public class NullPointerChecker implements Checker2 {
+public class NullPointerChecker /*implements Checker2*/ {
 
-    @Override
+   /* @Override
     public void checkEverything(City city) {
 
         if (city.getName() == null) {
@@ -36,6 +36,8 @@ public class NullPointerChecker implements Checker2 {
             System.out.println("Looks like some of the fields contain null-values. They will be replaced automatically");
             city.setMetersAboveSeaLevel(1337d);
         }
+
+    */
 
 
 
@@ -84,5 +86,5 @@ public class NullPointerChecker implements Checker2 {
 
         }*/
 
-    }
+
 }

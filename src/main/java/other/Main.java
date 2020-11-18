@@ -1,12 +1,5 @@
+package other;
 
-
-import com.opencsv.CSVWriter;
-import java.io.*;
-import java.time.ZonedDateTime;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
 
 public class Main {
 
@@ -104,7 +97,7 @@ public class Main {
             if (e instanceof ArrayIndexOutOfBoundsException) {
                 System.out.println("Не был передан файл в качестве: аргумент командной строки");
             } else {
-                System.out.println("Файл слишком большой по объёму");
+                e.printStackTrace();
             }
         }
 

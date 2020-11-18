@@ -1,4 +1,4 @@
-//для конвертации файлов в коллекцию объектов класса City
+package other;//для конвертации файлов в коллекцию объектов класса City
 
 import Checkers.FieldOfCityChecker;
 import PackageOfCity.*;
@@ -147,16 +147,18 @@ public class FileConverter {
 
 
 
-            //int counter = 0;
+            int counter = 0;
             String[] nextRecord;
 
             while ((nextRecord = csvReader.readNext())!= null){
 
+                counter = counter + 1;
 
                 FieldOfCityChecker fieldOfCityChecker = new FieldOfCityChecker();
-                City cityToPut = fieldOfCityChecker.checkEverything(nextRecord);
+                City cityToPut = fieldOfCityChecker.checkEverything(nextRecord, counter);
                 cityToPut.setId(City.generateId());
                 hashtable.put(cityToPut.getId(), cityToPut);
+                hashtable.setAuthDateTime(LocalDateTime.now());
 
                 /*
                 String name = null; double x = 0; Integer y = 0; Long area = null;

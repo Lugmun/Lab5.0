@@ -19,4 +19,5 @@ public enum StandardOfLiving {
     public String toString() {
         return string;
     }
+
 }

@@ -19,7 +19,7 @@ public class AverageOfMetersAboveTheSeaLevel implements Command {
 
             for(long key : keys) {
                 if (hashtable.get(key).getMetersAboveSeaLevel()!=null) {
-                    double somevalue = hashtable.get(key).getMetersAboveSeaLevel();
+                    value = hashtable.get(key).getMetersAboveSeaLevel();
                     sumValue = sumValue + value;
                     i = i+1;
                 }

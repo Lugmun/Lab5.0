@@ -19,4 +19,5 @@ public enum Government {
     public String toString() {
         return string;
     }
+
 }

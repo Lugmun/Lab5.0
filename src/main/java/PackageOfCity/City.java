@@ -32,12 +32,11 @@ public class City implements Comparable<City>{
         this.governor = governor;
     }
 
-    public City(String name, Coordinates coordinates, ZonedDateTime creationDate, Long area, long population,
+    public City(String name, Coordinates coordinates, Long area, long population,
                 Double metersAboveSeaLevel, Climate climate, Government government,
                 StandardOfLiving standardOfLiving, Human governor) {
         this.name = name;
         this.coordinates = coordinates;
-        this.creationDate = creationDate;
         this.area = area;
         this.population = population;
         this.metersAboveSeaLevel = metersAboveSeaLevel;
@@ -109,6 +108,100 @@ public class City implements Comparable<City>{
         return metersAboveSeaLevel;
     }
 
+    public ZonedDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public Climate getClimate() {
+        return climate;
+    }
+
+    public Government getGovernment() {
+        return government;
+    }
+
+    public StandardOfLiving getStandardOfLiving() {
+        return standardOfLiving;
+    }
+
+    public void setClimate(String str){
+        Climate cl;
+        switch (str) {
+            case "TROPICAL_SAVANNA":
+                cl = Climate.TROPICAL_SAVANNA;
+                break;
+            case "SUBARCTIC":
+                cl = Climate.SUBARCTIC;
+                break;
+            case "STEPPE":
+                cl = Climate.STEPPE;
+                break;
+            case "POLAR_ICECAP":
+                cl = Climate.POLAR_ICECAP;
+                break;
+            case "null":
+                cl = null;
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + str);
+        }
+        climate = cl;
+    }
+
+    public void setGovernment(String str){
+        Government go;
+        switch (str) {
+            case "PLUTOCRACY":
+                go = Government.PLUTOCRACY;
+                break;
+            case "NOOCRACY":
+                go = Government.NOOCRACY;
+                break;
+            case "ETHNOCRACY":
+                go = Government.ETHNOCRACY;
+                break;
+            case "CORPORATOCRACY":
+                go = Government.CORPORATOCRACY;
+                break;
+            case "ANARCHY":
+                go = Government.ANARCHY;
+                break;
+            case "null":
+                go = null;
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + str);
+        }
+        government = go;
+    }
+
+    public void setStandartOfLiving(String str){
+        StandardOfLiving sol;
+        switch (str) {
+            case "ULTRA_LOW":
+                sol = StandardOfLiving.ULTRA_LOW;
+                break;
+            case "ULTRA_HIGH":
+                sol = StandardOfLiving.ULTRA_HIGH;
+                break;
+            case "NIGHTMARE":
+                sol = StandardOfLiving.NIGHTMARE;
+                break;
+            case "MEDIUM":
+                sol = StandardOfLiving.MEDIUM;
+                break;
+            case "HIGH":
+                sol = StandardOfLiving.HIGH;
+                break;
+            case "null":
+                sol = null;
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + str);
+        }
+        standardOfLiving = sol;
+    }
+
    public void setGovernor(Human governor){
         this.governor = governor;
    }
@@ -131,17 +224,20 @@ public class City implements Comparable<City>{
         diff += Float.valueOf(this.getArea()).compareTo(Float.valueOf(city.getArea()));
         diff += Long.valueOf(this.getPopulation()).compareTo(Long.valueOf(city.getPopulation()));
         diff += this.getMetersAboveSeaLevel().compareTo(city.getMetersAboveSeaLevel());
-        diff += this.getCoordinates().compareTo(city.getCoordinates());
+        //diff += this.getCoordinates().compareTo(city.getCoordinates());
 
         return diff;
     }
 
     @Override
     public String toString() {
-        return  getId()+";"+getName()+";"+getCoordinates()+";"
-                +getArea()+";"+getPopulation()+";"+getMetersAboveSeaLevel() +";"
-                +climate.toString()+";"+government.toString()+";"
-                +standardOfLiving.toString()+";"+getGovernor()+"\n";
+        return  getName()+";"+getCoordinates()+";"
+                +getArea()+";"+getPopulation()+";"
+                +getMetersAboveSeaLevel() +";"
+                +(climate != null ? climate.toString() : "null")+";"
+                +(government != null ? government.toString() : "null")+";"
+                +(standardOfLiving != null ? standardOfLiving.toString() : "null") +";"
+                +getGovernor()+"\n";
     }
 
     public String customToString() {
@@ -151,9 +247,9 @@ public class City implements Comparable<City>{
                 "Area: " +getArea()+"\n"+
                 "Population: "+getPopulation()+"\n"+
                 "Meters above the sea: "+getMetersAboveSeaLevel()+"\n"+
-                "Climate: " +climate.toString()+"\n"+
-                "Government: "+government.toString()+"\n"+
-                "Standard of living: "+standardOfLiving.toString()+"\n"+
+                "Climate: " + (climate != null ? climate.toString() : "null") +"\n"+
+                "Government: "+(government != null ? government.toString() : "null") +"\n"+
+                "Standard of living: "+(standardOfLiving != null ? standardOfLiving.toString() : "null") +"\n"+
                 "Governor: "+getGovernor();
     }
 

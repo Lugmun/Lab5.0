@@ -1,4 +1,4 @@
-
+package other;
 
 import Commands.*;
 
@@ -77,7 +77,7 @@ public class Terminal {
             switch (arr1){
                 case "exit":
 
-                    System.out.println("See you soon");
+                    System.out.println("До свидания");
                     System.exit(0);
 
                     break;
@@ -203,13 +203,7 @@ public class Terminal {
                     break;
 
             }
-
-
         }
-
-
-
     }
-
 }
 

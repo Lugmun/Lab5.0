@@ -6,7 +6,7 @@ public enum Climate {
     SUBARCTIC("SUBARCTIC"),
     POLAR_ICECAP("POLAR_ICECAP");
 
-    private String string;
+    public String string;
 
     // constructor to set the string
     Climate(String name){
@@ -18,5 +18,4 @@ public enum Climate {
     public String toString() {
         return string;
     }
-
 }
